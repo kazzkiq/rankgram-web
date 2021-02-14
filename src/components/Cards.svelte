@@ -1,14 +1,36 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, afterUpdate } from "svelte";
   import Card from "./Card.svelte";
+  import { UsersService } from "../services/Users";
 
+  export let sortBy = "followers";
   let users = [];
 
   async function loadData() {
-    const rawUsers = await (await fetch("/api/bbb21/users.json")).json();
-    rawUsers.sort((a, b) => (a.followers < b.followers) ? 1 : -1);
-    users = rawUsers;
+   users = await UsersService().getAll();
   }
+
+  function sortUsers() {
+    console.log(sortBy);
+    if (sortBy === "followers") {
+      users.sort((a, b) => (a.followers < b.followers) ? 1 : -1);
+      users = [...users];
+    }
+
+    if (sortBy === "growth") {
+      users.sort((a, b) => (a.percentage < b.percentage) ? 1 : -1);
+      users = [...users];
+    }
+
+    if (sortBy === "loss") {
+      users.sort((a, b) => (a.percentage > b.percentage) ? 1 : -1);
+      users = [...users];
+    }
+  }
+
+  afterUpdate(() => {
+    sortUsers();
+  });
 
   onMount(() => {
     loadData();

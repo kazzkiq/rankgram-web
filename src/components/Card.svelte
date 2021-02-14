@@ -1,5 +1,6 @@
 <script>
   import { toCoolNumber } from "../helpers/Transform";
+  import { formatToNumber } from "brazilian-values";
   export let user;
   export let position;
 </script>
@@ -30,7 +31,11 @@
     <a class="link" href={user.external_url} target="_blank">{user.external_url}</a>
   {/if}
   <div class="actions">
-    <a href="https://instagram.com/{user.username}">Ver Perfil</a>
+    <div class="percentage">
+      <b class:up={user.percentage > 0} class:down={user.percentage < 0}>{formatToNumber(user.percentage)}%</b>
+      <span>(últimos 7 dias)</span>
+    </div>
+    <a href="https://instagram.com/{user.username}" target="_blank">Ver Perfil</a>
   </div>
 </div>
 
@@ -144,5 +149,31 @@
     color: #fff;
     font-weight: bold;
     text-decoration: none;
+  }
+
+  .percentage {
+    margin-right: auto;
+    font-size: 11px;
+  }
+  
+  .percentage b {
+    padding: 3px 8px;
+    border-radius: 10px;
+    background: #eee;
+    font-weight: bold;
+  }
+
+  .percentage b.up {
+    background-color: #00df77;
+  }
+
+  .percentage b.down {
+    background-color: #df0043;
+    color: #fff;
+  }
+
+  .percentage span {
+    opacity: 0.5;
+    margin-left: 5px;
   }
 </style>
