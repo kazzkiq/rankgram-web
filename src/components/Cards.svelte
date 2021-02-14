@@ -2,12 +2,16 @@
   import { onMount, afterUpdate } from "svelte";
   import Card from "./Card.svelte";
   import { UsersService } from "../services/Users";
+  import Loader from "./Loader.svelte";
 
   export let sortBy = "followers";
   let users = [];
+  let isLoading = true;
 
   async function loadData() {
-   users = await UsersService().getAll();
+    isLoading = true;
+    users = await UsersService().getAll();
+    isLoading = false;
   }
 
   function sortUsers() {
@@ -37,6 +41,7 @@
 </script>
 
 <div class="cards">
+  <Loader visible={isLoading} />
   {#each users as user, index}
     <Card {user} position={index + 1} />
   {/each}
