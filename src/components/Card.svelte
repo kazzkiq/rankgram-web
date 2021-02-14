@@ -50,7 +50,7 @@ import Icon from "./Icon.svelte";
 <style>
   .card {
     position: relative;
-    background: #F3F3F3;
+    background: var(--color-grey-1);
     padding: 15px;
     border-radius: 15px;
     margin-bottom: 20px;
@@ -70,8 +70,8 @@ import Icon from "./Icon.svelte";
     font-size: 10px;
     font-weight: bold;
     border-radius: 50%;
-    background: #f3f3f3;
-    border: 4px solid #fff;
+    background: var(--color-grey-1);
+    border: 4px solid var(--color-bg);
   }
 
   .avatar_data {
@@ -84,7 +84,7 @@ import Icon from "./Icon.svelte";
     width: 65px;
     height: 65px;
     border-radius: 50%;
-    background: #c4c4c4;
+    background: var(--color-grey-2);
   }
 
   .avatar_data h3 {
@@ -137,7 +137,7 @@ import Icon from "./Icon.svelte";
   .link {
     margin-top: 10px;
     font-size: 12px;
-    color: #3B72FE;
+    color: var(--color-blue);
     text-decoration: none;
   }
 
@@ -146,7 +146,7 @@ import Icon from "./Icon.svelte";
     align-items: center;
     justify-content: flex-end;
     height: 55px;
-    background: #e1e1e1;
+    background: var(--color-grey-3);
     margin: 10px -15px -15px -15px;
     border-radius: 0 0 15px 15px;
     padding: 0 15px;
@@ -161,7 +161,7 @@ import Icon from "./Icon.svelte";
     border: none;
     border-radius: 100px;
     font-size: 12px;
-    background-color: #3B72FE;
+    background-color: var(--color-blue);
     color: #fff;
     font-weight: bold;
     text-decoration: none;
@@ -175,7 +175,7 @@ import Icon from "./Icon.svelte";
   .percentage b {
     padding: 3px 8px;
     border-radius: 10px;
-    background: #eee;
+    background: var(--color-grey-4);
     font-weight: bold;
   }
 

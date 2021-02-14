@@ -53,13 +53,14 @@
     height: 32px;
     border: none;
     border-radius: 100px;
-    background: #f3f3f3;
+    background: var(--color-grey-1);
     font-size: 12px;
     transition: all 0.1s linear;
+    color: var(--color-text);
   }
 
   ul li.active button {
-    background-color: #3B72FE;
+    background-color: var(--color-blue);
     color: #fff;
     font-weight: bold;
   }
