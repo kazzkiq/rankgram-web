@@ -14,6 +14,8 @@
   }
 </script>
 
+<h5>Filtrar por</h5>
+
 <ul>
   <li class:active={filterType === "followers"}><button on:click={() => setType("followers")}>Seguidores</button></li>
   <li class:active={filterType === "growth"}><button on:click={() => setType("growth")}>Crescimento</button></li>
@@ -21,9 +23,16 @@
 </ul>
 
 <style>
+  h5 {
+    margin-top: 25px;
+    font-weight: bold;
+    opacity: 0.5;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
   ul {
     display: flex;
-    margin: 25px 0;
+    margin: 5px 0 25px 0;
   }
 
   ul li {

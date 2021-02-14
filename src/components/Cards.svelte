@@ -11,7 +11,6 @@
   }
 
   function sortUsers() {
-    console.log(sortBy);
     if (sortBy === "followers") {
       users.sort((a, b) => (a.followers < b.followers) ? 1 : -1);
       users = [...users];

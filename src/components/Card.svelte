@@ -1,6 +1,7 @@
 <script>
   import { toCoolNumber } from "../helpers/Transform";
   import { formatToNumber } from "brazilian-values";
+import Icon from "./Icon.svelte";
   export let user;
   export let position;
 </script>
@@ -23,7 +24,14 @@
     </div>
   </div>
   <p class="username">@{user.username}</p>
-  <h2 class="name">{user.name}</h2>
+  <h2 class="name">
+    {user.name}
+    {#if user.is_verified}
+      <span class="verified">
+        <Icon name="verified" />
+      </span>
+    {/if}
+  </h2>
   <div class="biography">
     {@html user.biography.replace("\n", "<br>")}
   </div>
@@ -107,9 +115,17 @@
   }
 
   .name {
+    display: flex;
+    align-items: center;
     font-weight: bold;
     font-size: 14px;
     margin-top: -2px;
+  }
+
+  .verified {
+    margin-left: 4px;
+    margin-top: 0px;
+    transform: translateY(1px);
   }
 
   .biography {

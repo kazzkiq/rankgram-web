@@ -13,6 +13,17 @@
 
 <Header />
 
-<h1>Rankgram.me</h1>
+<section class="description">
+  <h1>BBB21</h1>
+  <p>Confira quais participantes estão se dando melhor (ou pior) no Instagram!</p>
+</section>
+
+<section class="filter">
+  <Filter on:change={handleFilter} />
+</section>
+
+<section class="cards">
+  <Cards sortBy={filterType} />
+</section>
 
 <Footer />

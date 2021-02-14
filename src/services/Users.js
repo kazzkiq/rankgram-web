@@ -12,8 +12,6 @@ async function getAll() {
     }
   });
   
-  console.log(rawUsers);
-
   return rawUsers;
 }
 
