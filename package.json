@@ -1,6 +1,6 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
+  "name": "rankgram-web",
+  "version": "1.1.0",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -20,6 +20,7 @@
   "dependencies": {
     "brazilian-values": "^0.10.1",
     "sirv-cli": "^1.0.0",
-    "tinro": "^0.5.12"
+    "tinro": "^0.5.12",
+    "uplot": "^1.6.4"
   }
 }

@@ -1,9 +1,16 @@
 <script>
   import { toCoolNumber } from "../helpers/Transform";
   import { formatToNumber } from "brazilian-values";
-import Icon from "./Icon.svelte";
+  import Icon from "./Icon.svelte";
+  import MiniGraph from "./MiniGraph.svelte";
   export let user;
   export let position;
+  let showGraph = false;
+
+
+  function toggleGraph() {
+    showGraph = !showGraph;
+  }
 </script>
 
 <div class="card">
@@ -38,10 +45,13 @@ import Icon from "./Icon.svelte";
   {#if user.external_url}
     <a class="link" href={user.external_url} target="_blank">{user.external_url}</a>
   {/if}
+  <MiniGraph visible={showGraph} data={user.stats} />
   <div class="actions">
     <div class="percentage">
       <b class:up={user.percentage > 0} class:down={user.percentage < 0}>{formatToNumber(user.percentage)}%</b>
-      <span>(últimos 7 dias)</span>
+      <button on:click={toggleGraph}>
+        <Icon name="graph" />
+      </button>
     </div>
     <a href="https://instagram.com/{user.username}" target="_blank">Ver Perfil</a>
   </div>
@@ -132,13 +142,19 @@ import Icon from "./Icon.svelte";
     margin-top: 12px;
     font-size: 12px;
     line-height: 18px;
+    margin-bottom: 10px;
+  }
+
+  .biography + .link {
+    margin-top: -5px;
   }
 
   .link {
-    margin-top: 10px;
+    display: block;
     font-size: 12px;
     color: var(--color-blue);
     text-decoration: none;
+    margin-bottom: 10px;
   }
 
   .actions {
@@ -147,7 +163,7 @@ import Icon from "./Icon.svelte";
     justify-content: flex-end;
     height: 55px;
     background: var(--color-grey-3);
-    margin: 10px -15px -15px -15px;
+    margin: 0 -15px -15px -15px;
     border-radius: 0 0 15px 15px;
     padding: 0 15px;
   }
@@ -168,6 +184,8 @@ import Icon from "./Icon.svelte";
   }
 
   .percentage {
+    display: flex;
+    align-items: center;
     margin-right: auto;
     font-size: 11px;
   }
@@ -188,8 +206,17 @@ import Icon from "./Icon.svelte";
     color: #fff;
   }
 
-  .percentage span {
-    opacity: 0.5;
+  .percentage button {
+    border: none;
+    padding: 10px 5px;
+    background: transparent;
     margin-left: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--color-text);
+  }
+
+  .percentage button :global(svg) {
+    fill: var(--color-text);
   }
 </style>

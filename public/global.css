@@ -76,6 +76,8 @@ h1, h2, h3, h4, h5, h6 {
     --color-grey-4: #eeeeee;
     --color-blue: #3B72FE;
     --color-text: #1b1b1b;
+    --color-chart-fill: rgba(27, 27, 27, 0.3);
+    --color-chart-stroke: #1b1b1b;
   }
 }
 
@@ -89,6 +91,8 @@ h1, h2, h3, h4, h5, h6 {
     --color-grey-4: #eeeeee;
     --color-blue: #3B72FE;
     --color-text: #fff;
+    --color-chart-fill: rgba(255, 255, 255, 0.3);
+    --color-chart-stroke: #ffffff;
   }
 }
 
