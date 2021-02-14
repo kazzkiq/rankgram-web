@@ -4,6 +4,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+import replace from '@rollup/plugin-replace';
+import pkg from './package.json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -37,6 +39,9 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+		replace({
+      'process.env.PACKAGE_VERSION': pkg.version,
+    }),
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production
