@@ -3,4 +3,4 @@
   import Home from './pages/Home.svelte';
 </script>
 
-<Route path="/"><Home /></Route>
+<Route path="/bbb21"><Home /></Route>
