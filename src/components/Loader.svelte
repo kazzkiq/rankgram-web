@@ -29,7 +29,6 @@
     width: 66px;
     height: 66px;
     border-radius: 5px;
-    background: #fff;
     z-index: var(--z-9);
     display: flex;
     align-items: center;
