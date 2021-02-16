@@ -14,7 +14,7 @@
   }
 </script>
 
-<h5>Filtrar por</h5>
+<h5>Ordenar por</h5>
 
 <ul>
   <li class:active={filterType === "followers"}><button on:click={() => setType("followers")}>Seguidores</button></li>
